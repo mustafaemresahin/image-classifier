@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: opacity 5s ease;
+    transition: max-height 1s ease-out;
+}
+.form-container-expand .form-container{
+    max-height: 50px;
+}
+.form-container input[type="file"] {
+    margin-bottom: 10px;
+}
+.form-container button[type="submit"] {
+    width: 100%;
+}
+.result-container {
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+}
+.hr-container-top{
+    text-align: center;
+    padding-top:10px;
+}
+.hr-container-bottom{
+    text-align: center;
+    padding-top:0px;
+    transition: 0.3s ease;
+}
+.line{
+    margin: auto;
+    padding:10px;
+    max-width: 400px;
+}
+#data, #MobileNetv2image, #ResNet50image{
+    max-width: 300px; 
+    max-height: 300px;
+}
+h5{
+    text-align: center;
+}
+.button-container{
+    display: inline-block;
+    margin-left: 10px;
+    justify-content: center;
+}
+#correct, #incorrect{
+    display: inline-block;
+    margin: 10px;
+}
+.decision-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.button-container {
+    transition: opacity 0.5s ease;
+    margin-left: 10px;
+    justify-content: center;
+}
+#correct,
+#incorrect {
+    opacity: 0;
+    margin: 10px;
+    transition: opacity 0.3s ease;
+}
+.page-buttom{
+    transition: transform 1s ease-out;
+    transform: translateY(-30px);
+}
+.user-feed .page-buttom{
+    transform: translateY(20px);
+}
+.switch{
+    text-align: center;
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    background-color: blue;
+    color:rgb(0, 0, 0);
+    border-radius: 10px;
+    margin:0.2rem;
+    transition: background-color 0.3s linear;
+}
+.switch:hover{
+    background-color: red;
+}
+.switch-container{
+    text-align: center;
+    padding-bottom:20px;
+}
+p{
+    padding-top:10px;
+    text-align: center;
+}
+#mobile-form, #resnet-form{
+    transition: opacity 1s ease;
+}
+.pick-model{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#mobileButton{
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+    margin-bottom:10px;
+}
+#resnetButton{
+    text-align: center;
+    display: inline-block;
+    margin: 5px;
+    margin-bottom:10px;
+}
