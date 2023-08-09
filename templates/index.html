@@ -23,9 +23,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    
     <button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Info</button>
-
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -73,7 +71,6 @@
                     </li>
                 </ul>
                 <br>
-
                 <h6>How to Use:</h6>
                 <ol>
                     <li>Click on the "Choose Image" button to select an image from your computer 
@@ -85,9 +82,7 @@
                         in the image and their corresponding labels.</li>
                     <li>Users can explore the versatility of the model by uploading various images,
                         and the system will accurately recognize and classify different objects.</li>
-                    
                 </ol>
-                
                 <br>
                 <h6>Feedback:</h6>
                 <ol>
@@ -107,10 +102,7 @@
                     </li>
                     <li>Select the appropriate option based on your assessment of the classification.</li>
                 </ol>
-
-
                 <br>
-
                 <h6>Purpose:</h6>
                 <p style="text-align:left; text-indent: 5%;">
                     The main purpose of this project is to showcase the capabilities of 
@@ -122,9 +114,6 @@
                 but also provides an educational and engaging experience for users
                 interested in machine learning concepts.
                 </p>
-
-                
-                
             </div>
             <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -292,44 +281,6 @@
         window.onload = redirectAfterDelay;
       </script>
     {% endif %}
-    <!--<div id="drop-zone" style="border: 2px dashed #ccc; padding: 20px;">
-        <p>Drag and drop a file here or click to select a file</p>
-        <input type="file" id="file-input" style="display: none;">
-    </div>
-
-    <script>
-        const dropZone = document.getElementById('drop-zone');
-
-        dropZone.addEventListener('dragover', (event) => {
-            event.preventDefault();
-            dropZone.style.border = '2px dashed #000'; // Highlight the drop zone on dragover
-        });
-
-        dropZone.addEventListener('dragleave', (event) => {
-            event.preventDefault();
-            dropZone.style.border = '2px dashed #ccc'; // Reset the drop zone on dragleave
-        });
-
-        dropZone.addEventListener('drop', (event) => {
-            event.preventDefault();
-            dropZone.style.border = '2px dashed #ccc'; // Reset the drop zone on drop
-            const fileInput = document.getElementById('file-input');
-            fileInput.files = event.dataTransfer.files; // Assign the dragged files to the file input
-            handleFileUpload(fileInput.files[0]); // Optional: You can process the uploaded file here
-        });
-
-        // Optional: If you want to handle file selection through the file input's click event as well
-        const fileInput = document.getElementById('file-input');
-        fileInput.addEventListener('change', (event) => {
-            handleFileUpload(fileInput.files[0]);
-        });
-
-        // Optional: Function to handle the file upload
-        function handleFileUpload(file) {
-            console.log('Uploaded file:', file);
-            // Here, you can make an AJAX request to your Flask backend to handle the file upload
-        }
-    </script>-->
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
