@@ -7,8 +7,6 @@ from PIL import Image
 from io import BytesIO
 import base64
 from flask import send_from_directory
-from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
-from tensorflow.keras.preprocessing.image import load_img, img_to_array
 
 
 app = Flask(__name__)
@@ -44,13 +42,13 @@ def classify_image_using_MobileNet(image):
     return label
 
 def classify_image_using_ResNet50(image_path):
-    image = load_img(image_path, target_size=(224, 224))
-    image_array = img_to_array(image)
+    image = tf.keras.preprocessing.image.load_img(image_path, target_size=(224, 224))
+    image_array = tf.keras.preprocessing.image.img_to_array(image)
     image_array = np.expand_dims(image_array, axis=0)
-    image_array = preprocess_input(image_array)
+    image_array = tf.keras.applications.resnet50.preprocess_input(image_array)
 
     prediction = ResNet50.predict(image_array)
-    decoded_prediction = decode_predictions(prediction, top=1)[0]
+    decoded_prediction = tf.keras.applications.resnet50.decode_predictions(prediction, top=1)[0]
     label = decoded_prediction[0][1]
 
     return label
