@@ -212,7 +212,7 @@
         {% endif %}
         {% if valid %}
         <div class="decision-container mt-3">
-            <h5>Your response has been recorded</h5>
+            <h3>Your response has been recorded</h3>
         </div>
         {% endif %}
         {% if result %}
@@ -257,10 +257,12 @@
             </div>
             {% else %}
             {% if correct %}
+            <h5>{{ result }}</h5>
             <div style="padding:10px;">
                 <button disabled class="btn btn-success">&#10003; Correct</button>
             </div>
             {% else %}
+            <h5>{{ result }}</h5>
             <div style="padding:10px;">
                 <button disabled class="btn btn-danger">&#10007; Incorrect</button>
             </div>
