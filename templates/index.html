@@ -5,20 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
-    <link
-      class="jsbin"
-      href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script
-      class="jsbin"
-      src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
-    ></script>
-    <script
-      class="jsbin"
-      src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"
-    ></script>
+    <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -27,16 +16,9 @@
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-            <h2 class="modal-title" id="exampleModalLongTitle">About this project</h2>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
+            <div class="modal-header"><h2 class="modal-title" id="exampleModalLongTitle">About this project</h2><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
             <div class="modal-body">
-                <h4>Project Name: Image Classifier - Object Recognition</h4>
-                <hr>
-                <h6>Description:</h6>
+                <h4>Project Name: Image Classifier - Object Recognition</h4><hr><h6>Description:</h6>
                 <p style="text-align:left; text-indent: 5%;">
                     The "<strong>Image Classifier - Object Recognition</strong>" project 
                     is a powerful web application that utilizes machine 
@@ -45,31 +27,20 @@
                     pre-trained deep learning models: MobileNetV2 and ResNet-50. 
                     Users can upload images to the web app, and the system will 
                     instantly recognize and categorize the objects present in the 
-                    images.</p>
-                <br>
-                <h6>Technologies Used:</h6>
-                <ul>
-                    <li>
-                        Python: The backend of the web application is built using Python 
-                        and the Flask web framework.
-                    </li>
-                    <li>
-                        TensorFlow: The project employs TensorFlow, a widely used deep 
+                    images.</p><br>
+                <h6>Technologies Used:</h6><ul>
+                    <li>Python: The backend of the web application is built using Python 
+                        and the Flask web framework.</li>
+                    <li>TensorFlow: The project employs TensorFlow, a widely used deep 
                         learning library, to work with the pre-trained machine learning 
-                        models.
-                    </li>
+                        models.</li>
                     <li>Keras: Keras, a high-level neural networks API, is used in conjunction 
-                        with TensorFlow for model handling.</li>
-                    <li>
+                        with TensorFlow for model handling.</li><li>
                         HTML/CSS/JavaScript: The frontend of the web app is designed using 
                         standard web technologies, creating an engaging and interactive user 
-                        experience.
-                    </li>
-                    <li>
-                        PIL/Pillow: The Python Imaging Library (PIL) or Pillow is used for 
-                        image processing tasks, such as resizing and opening images.
-                    </li>
-                </ul>
+                        experience.</li>
+                    <li>PIL/Pillow: The Python Imaging Library (PIL) or Pillow is used for 
+                        image processing tasks, such as resizing and opening images.</li></ul>
                 <br>
                 <h6>How to Use:</h6>
                 <ol>
@@ -85,21 +56,14 @@
                 </ol>
                 <br>
                 <h6>Feedback:</h6>
-                <ol>
-                    <li>Users have the option to provide feedback on the classification results. After the image is classified, you will see a "Feedback" button on the screen.
-                    </li>
-                    <li>Click on the "Feedback" button to provide your feedback.
-                    </li>
+                <ol><li>Users have the option to provide feedback on the classification results. After the image is classified, you will see a "Feedback" button on the screen.</li>
+                    <li>Click on the "Feedback" button to provide your feedback.</li>
                     <li>Two buttons will appear, allowing you to choose one of two options:
-                        <ul>
-                            <li>                        
+                        <ul><li>                        
                                 <button type="submit" name="decision" class="btn btn-success" value="correct" style="margin-bottom:10px; margin-top:10px;">&#10003; Correct</button>
                                 : If you agree with the classification result and find it accurate.</li>
-                            <li>
-                                <button type="submit" name="decision" class="btn btn-danger" value="incorrect">&#10007; Incorrect</button>
-                                : If you disagree with the classification result and believe it to be inaccurate.</li>
-                        </ul>
-                    </li>
+                            <li><button type="submit" name="decision" class="btn btn-danger" value="incorrect">&#10007; Incorrect</button>
+                                : If you disagree with the classification result and believe it to be inaccurate.</li></ul></li>
                     <li>Select the appropriate option based on your assessment of the classification.</li>
                 </ol>
                 <br>
@@ -129,19 +93,11 @@
         </div>
         <div class="pick-model">
             {% if model == 'mobile' %}
-            <div>
-                <button type="submit" class="btn btn-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button>
-            </div>            
-            <div>
-                <button type="submit" class="btn btn-outline-dark" onclick="resnet()" id="resnetButton">ResNet-50</button>
-            </div> 
+            <div><button type="submit" class="btn btn-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button></div>            
+            <div><button type="submit" class="btn btn-outline-dark" onclick="resnet()" id="resnetButton">ResNet-50</button></div> 
             {% elif model == 'resnet' %}
-            <div>
-                <button type="submit" class="btn btn-outline-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button>
-            </div> 
-            <div>
-                <button type="submit" class="btn btn-dark" onclick="resnet()" id="resnetButton">ResNet-50</button>
-            </div>            
+            <div><button type="submit" class="btn btn-outline-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button></div> 
+            <div><button type="submit" class="btn btn-dark" onclick="resnet()" id="resnetButton">ResNet-50</button></div>            
             {% endif %}            
         </div>
         <div class="form-container">
@@ -154,75 +110,43 @@
                 <button type="submit" class="btn btn-primary">Classify using MobileNet V2</button>
             </form>
             <form method="post" action="/classify-using-ResNet50" enctype="multipart/form-data" id="resnet-form" style="opacity:0; display:none;">
-                <div class="form-group">
-                    <input type="file" value="allo" name="image" onchange="readURL2(this);"/>
-                    <img id="ResNet50image" alt="No image" />
-                </div>
+                <div class="form-group"><input type="file" value="allo" name="image" onchange="readURL2(this);"/><img id="ResNet50image" alt="No image" /></div>
                 <button type="submit" class="btn btn-primary">Classify using ResNet-50</button>
             </form>
             {% elif model == 'resnet' %}
             <form method="post" action="/classify-using-MobileNetV2" enctype="multipart/form-data" id="mobile-form" style="opacity:0; display:none">
-                <div class="form-group">
-                    <input type="file" value="allo" name="image" onchange="readURL1(this);"/>
-                    <img id="MobileNetv2image" alt="No image" />
-                </div>
-                <button type="submit" class="btn btn-primary">Classify using MobileNet V2</button>
-            </form>
+                <div class="form-group"><input type="file" value="allo" name="image" onchange="readURL1(this);"/><img id="MobileNetv2image" alt="No image" /></div>
+                <button type="submit" class="btn btn-primary">Classify using MobileNet V2</button></form>
             <form method="post" action="/classify-using-ResNet50" enctype="multipart/form-data" id="resnet-form" style="opacity:1; display:block;">
-                <div class="form-group">
-                    <input type="file" value="allo" name="image" onchange="readURL2(this);"/>
-                    <img id="ResNet50image" alt="No image" />
-                </div>
-                <button type="submit" class="btn btn-primary">Classify using ResNet-50</button>
-            </form>
-            {% endif %}
-        </div>
+                <div class="form-group"><input type="file" value="allo" name="image" onchange="readURL2(this);"/><img id="ResNet50image" alt="No image" /></div><button type="submit" class="btn btn-primary">Classify using ResNet-50</button></form>
+            {% endif %}</div>
         {% endif %}
         {% if nofile %}
         <div>
             <div class="result-container mt-5">
-                <h2 class="text-center">Error Occured</h2>
-                <h4 class="text-center" style="color:red;">No selected file!</h4>
-                <hr class="line"></hr>
-                <form method="post" action="/">
-                    <button type="submit" class="btn btn-secondary">Refresh</button>
-                </form>
-            </div>
-        </div>
+                <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">No selected file!</h4><hr class="line"></hr>
+                <form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form>
+            </div></div>
         {% endif %}
         {% if cant %}
         <div class="result-container mt-5">
-            <h2 class="text-center">Error Occured</h2>
-            <h4 class="text-center" style="color:red;">Can't read image!</h4>
-            <hr class="line"></hr>
-            <form method="post" action="/">
-                <button type="submit" class="btn btn-secondary">Refresh</button>
-            </form>
-        </div>
+            <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">Can't read image!</h4><hr class="line"></hr>
+            <form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form></div>
         {% endif %}
         {% if nopart %}
         <div class="result-container mt-5">
-            <h2 class="text-center">Error Occured</h2>
-            <h4 class="text-center" style="color:red;">No image part in the form.</h4>
-            <hr class="line"></hr>
-            <form method="post" action="/">
-                <button type="submit" class="btn btn-secondary">Refresh</button>
-            </form>
-        </div>
+            <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">No image part in the form.</h4><hr class="line"></hr>
+            <form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form></div>
         {% endif %}
         {% if valid %}
-        <div class="decision-container mt-3">
-            <h3>Your response has been recorded</h3>
-        </div>
+        <div class="decision-container mt-3"><h3>Your response has been recorded</h3></div>
         {% endif %}
         {% if result %}
         <div class="result-container mt-3">
             {% if model == 'mobile' %}
-            <h2><h5><span class="badge badge-warning">Result from MobileNetV2</span></h5></h2>
-            <h5>{{ result }}</h5>
+            <h2><h5><span class="badge badge-warning">Result from MobileNetV2</span></h5></h2><h5>{{ result }}</h5>
             {% elif model == 'resnet' %}
-            <h2><h5><span class="badge badge-warning">Result from ResNet-50</span></h5></h2>
-            <h5>{{ result }}</h5>
+            <h2><h5><span class="badge badge-warning">Result from ResNet-50</span></h5></h2><h5>{{ result }}</h5>
             {% endif %}
             {% if data %}
             <img src="data:image/png;base64,{{ data }}" alt="Uploaded Image" id="data">
@@ -232,56 +156,26 @@
             {% if not valid %}
             <div class="decision-container mt-3">
                 <form method="post" action="/feedback/correct">
-                    <div class="button-container">
-                        <button type="submit" name="decision" class="btn btn-success decision-button" value="correct" id="correct" style="visibility:hidden;">&#10003; Correct</button>
-                    </div>
+                    <div class="button-container"><button type="submit" name="decision" class="btn btn-success decision-button" value="correct" id="correct" style="visibility:hidden;">&#10003; Correct</button></div>
                 </form>
                 <form method="post" action="feedback/incorrect">
-                    <div class="button-container">
-                        <button type="submit" name="decision" class="btn btn-danger decision-button" value="incorrect" id="incorrect" style="visibility:hidden;">&#10007; Incorrect</button>
-                    </div>
+                    <div class="button-container"><button type="submit" name="decision" class="btn btn-danger decision-button" value="incorrect" id="incorrect" style="visibility:hidden;">&#10007; Incorrect</button></div>
                 </form>
             </div>
             <div class="page-buttom">
-                <div class="hr-container-bottom">
-                    <hr class="line"></hr>
-                </div>
-                <div class="button-container">
-                    <form method="post" action="/">
-                        <button type="submit" class="btn btn-secondary">Refresh</button>
-                    </form>
-                </div>
-                <div class="button-container">
-                    <button class="btn btn-dark" id="rate">Feedback</button>
-                </div>
-            </div>
+                <div class="hr-container-bottom"><hr class="line"></hr></div>
+                <div class="button-container"><form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form></div>
+                <div class="button-container"><button class="btn btn-dark" id="rate">Feedback</button></div></div>
             {% else %}
             {% if correct %}
-            <h5>{{ result }}</h5>
-            <div style="padding:10px;">
-                <button disabled class="btn btn-success">&#10003; Correct</button>
-            </div>
+            <h5>{{ result }}</h5><div style="padding:10px;"><button disabled class="btn btn-success">&#10003; Correct</button></div>
             {% else %}
-            <h5>{{ result }}</h5>
-            <div style="padding:10px;">
-                <button disabled class="btn btn-danger">&#10007; Incorrect</button>
-            </div>
-            {% endif %}
-            <hr class="line">
-            <p>You are being redirected...</p>
-            {% endif %}
-        </div>
-        {% endif %}
-    </div>
+            <h5>{{ result }}</h5><div style="padding:10px;"><button disabled class="btn btn-danger">&#10007; Incorrect</button></div>
+            {% endif %}<hr class="line"><p>You are being redirected...</p>{% endif %}</div>{% endif %}</div>
     {% if correct or incorrect %}
-    <script>
-        function redirectAfterDelay() {
-          setTimeout(function () {
-            window.location.href = "/"; 
-          }, 5000); 
-        }
-        window.onload = redirectAfterDelay;
-      </script>
+    <script>function redirectAfterDelay() {
+          setTimeout(function () {window.location.href = "/"; }, 5000); }
+        window.onload = redirectAfterDelay;</script>
     {% endif %}
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
