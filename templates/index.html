@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Image Classifier</title>
+<head><title>Image Classifier</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
@@ -11,13 +10,71 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
+<body><button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Info</button>
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header"><h2 class="modal-title" id="exampleModalLongTitle">About this project</h2><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+            <div class="modal-body">
+                <h4>Project Name: Image Classifier - Object Recognition</h4><hr><h6>Description:</h6>
+                <p style="text-align:left; text-indent: 5%;">
+                    The "<strong>Image Classifier - Object Recognition</strong>" project 
+                    is a powerful web application that utilizes machine 
+                    learning to identify and classify various objects in 
+                    uploaded images. The application uses two state-of-the-art 
+                    pre-trained deep learning models: MobileNetV2 and ResNet-50. 
+                    Users can upload images to the web app, and the system will 
+                    instantly recognize and categorize the objects present in the 
+                    images.</p><br>
+                <h6>Technologies Used:</h6><ul>
+                    <li>Python: The backend of the web application is built using Python 
+                        and the Flask web framework.</li>
+                    <li>TensorFlow: The project employs TensorFlow, a widely used deep 
+                        learning library, to work with the pre-trained machine learning 
+                        models.</li>
+                    <li>Keras: Keras, a high-level neural networks API, is used in conjunction 
+                        with TensorFlow for model handling.</li><li>
+                        HTML/CSS/JavaScript: The frontend of the web app is designed using 
+                        standard web technologies, creating an engaging and interactive user 
+                        experience.</li>
+                    <li>PIL/Pillow: The Python Imaging Library (PIL) or Pillow is used for 
+                        image processing tasks, such as resizing and opening images.</li></ul>
+                <br><h6>How to Use:</h6>
+                <ol><li>Click on the "Choose Image" button to select an image from your computer 
+                        or device.</li>
+                    <li>Once an image is selected, click the "Classify using MobileNetV2" button
+                        to get the classification result using the MobileNetV2 model or click the
+                         "ResNet-50" button to use the ResNet-50 model.</li>
+                    <li>The result will be displayed on the page, showing the objects identified
+                        in the image and their corresponding labels.</li>
+                    <li>Users can explore the versatility of the model by uploading various images,
+                        and the system will accurately recognize and classify different objects.</li>
+                </ol><br><h6>Feedback:</h6>
+                <ol><li>Users have the option to provide feedback on the classification results. After the image is classified, you will see a "Feedback" button on the screen.</li>
+                    <li>Click on the "Feedback" button to provide your feedback.</li>
+                    <li>Two buttons will appear, allowing you to choose one of two options:
+                        <ul><li><button type="submit" name="decision" class="btn btn-success" value="correct" style="margin-bottom:10px; margin-top:10px;">&#10003; Correct</button>
+                                : If you agree with the classification result and find it accurate.</li>
+                            <li><button type="submit" name="decision" class="btn btn-danger" value="incorrect">&#10007; Incorrect</button>
+                                : If you disagree with the classification result and believe it to be inaccurate.</li></ul></li>
+                    <li>Select the appropriate option based on your assessment of the classification.</li>
+                </ol><br><h6>Purpose:</h6><p style="text-align:left; text-indent: 5%;">
+                    The main purpose of this project is to showcase the capabilities of 
+                deep learning models in real-world image recognition applications. By 
+                building an image classifier that can recognize a wide range of objects,
+                the project demonstrates the potential of machine learning in various 
+                industries, such as healthcare, automotive, agriculture, and more. The
+                application not only serves as a valuable tool for object recognition 
+                but also provides an educational and engaging experience for users
+                interested in machine learning concepts.
+                </p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>
     <div class="container mt-5">
         {% if not valid %}
         <h1 class="text-center">Image Classifier</h1>
-        <div class="hr-container-top">
-            <hr class="line">
-        </div>
+        <div class="hr-container-top"><hr class="line"></div>
         <div class="pick-model">
             {% if model == 'mobile' %}
             <div><button type="submit" class="btn btn-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button></div>            
@@ -49,15 +106,13 @@
             {% endif %}</div>
         {% endif %}
         {% if nofile %}
-        <div>
-            <div class="result-container mt-5">
+        <div><div class="result-container mt-5">
                 <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">No selected file!</h4><hr class="line"></hr>
                 <form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form>
-            </div></div>
+        </div></div>
         {% endif %}
         {% if cant %}
-        <div class="result-container mt-5">
-            <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">Can't read image!</h4><hr class="line"></hr>
+        <div class="result-container mt-5"><h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">Can't read image!</h4><hr class="line"></hr>
             <form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form></div>
         {% endif %}
         {% if nopart %}
@@ -81,18 +136,7 @@
             <p style="color:red;"><strong>Can't show image!</strong></p>
             {% endif %}
             {% if not valid %}
-            <div class="decision-container mt-3">
-                <form method="post" action="/feedback/correct">
-                    <div class="button-container"><button type="submit" name="decision" class="btn btn-success decision-button" value="correct" id="correct" style="visibility:hidden;">&#10003; Correct</button></div>
-                </form>
-                <form method="post" action="feedback/incorrect">
-                    <div class="button-container"><button type="submit" name="decision" class="btn btn-danger decision-button" value="incorrect" id="incorrect" style="visibility:hidden;">&#10007; Incorrect</button></div>
-                </form>
-            </div>
-            <div class="page-buttom">
-                <div class="hr-container-bottom"><hr class="line"></hr></div>
-                <div class="button-container"><form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form></div>
-                <div class="button-container"><button class="btn btn-dark" id="rate">Feedback</button></div></div>
+            <div class="decision-container mt-3"><form method="post" action="/feedback/correct"><div class="button-container"><button type="submit" name="decision" class="btn btn-success decision-button" value="correct" id="correct" style="visibility:hidden;">&#10003; Correct</button></div></form><form method="post" action="feedback/incorrect"><div class="button-container"><button type="submit" name="decision" class="btn btn-danger decision-button" value="incorrect" id="incorrect" style="visibility:hidden;">&#10007; Incorrect</button></div></form></div><div class="page-buttom"><div class="hr-container-bottom"><hr class="line"></hr></div><div class="button-container"><form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form></div><div class="button-container"><button class="btn btn-dark" id="rate">Feedback</button></div></div>
             {% else %}
             {% if correct %}
             <h5>{{ result }}</h5><div style="padding:10px;"><button disabled class="btn btn-success">&#10003; Correct</button></div>
@@ -100,9 +144,7 @@
             <h5>{{ result }}</h5><div style="padding:10px;"><button disabled class="btn btn-danger">&#10007; Incorrect</button></div>
             {% endif %}<hr class="line"><p>You are being redirected...</p>{% endif %}</div>{% endif %}</div>
     {% if correct or incorrect %}
-    <script>function redirectAfterDelay() {
-          setTimeout(function () {window.location.href = "/"; }, 5000); }
-        window.onload = redirectAfterDelay;</script>
+    <script>function redirectAfterDelay() {setTimeout(function () {window.location.href = "/"; }, 5000); }window.onload = redirectAfterDelay;</script>
     {% endif %}
     <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
