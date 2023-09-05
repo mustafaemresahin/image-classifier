@@ -8,57 +8,42 @@
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"></head>
 <body><button type="button" class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg">Info</button>
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg"><div class="modal-content">
             <div class="modal-header"><h2 class="modal-title" id="exampleModalLongTitle">About this project</h2><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
-            <div class="modal-body">
-                <h5>If you're curious about how this project works, the technologies behind it, and how to use it, check out my repository!</h5>
-            </div>
-            <div class="modal-footer">
-            <a href="https://github.com/mustafaemresahin/image-classifier" target="_blank"><button type="button" class="btn btn-primary">Go to repo</button></a>
+            <div class="modal-body"><h5>If you're curious about how this project works, the technologies behind it, and how to use it, check out my repository!</h5></div>
+            <div class="modal-footer"><a href="https://github.com/mustafaemresahin/image-classifier" target="_blank"><button type="button" class="btn btn-primary">Go to repo</button></a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>
     <div class="container mt-5">
         {% if not valid %}
-        <h1 class="text-center">Image Classifier</h1>
-        <div class="hr-container-top"><hr class="line"></div>
+        <h1 class="text-center">Image Classifier</h1><div class="hr-container-top"><hr class="line"></div>
         <div class="pick-model">
             {% if model == 'mobile' %}
-            <div><button type="submit" class="btn btn-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button></div>            
-            <div><button type="submit" class="btn btn-outline-dark" onclick="resnet()" id="resnetButton">ResNet-50</button></div> 
+            <div><button type="submit" class="btn btn-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button></div>            <div><button type="submit" class="btn btn-outline-dark" onclick="resnet()" id="resnetButton">ResNet-50</button></div> 
             {% elif model == 'resnet' %}
-            <div><button type="submit" class="btn btn-outline-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button></div> 
-            <div><button type="submit" class="btn btn-dark" onclick="resnet()" id="resnetButton">ResNet-50</button></div>            
+            <div><button type="submit" class="btn btn-outline-dark" onclick="mobile()" id="mobileButton">MobileNetV2</button></div> <div><button type="submit" class="btn btn-dark" onclick="resnet()" id="resnetButton">ResNet-50</button></div>            
             {% endif %}            
         </div>
         <div class="form-container">
             {% if model == 'mobile' %}
-            <form method="post" action="/classify-using-MobileNetV2" enctype="multipart/form-data" id="mobile-form" style="opacity:1; display:block;">
-                <div class="form-group">
-                    <input type="file" value="allo" name="image" onchange="readURL1(this);"/>
-                    <img id="MobileNetv2image" alt="No image" />
-                </div>
-                <button type="submit" class="btn btn-primary">Classify using MobileNet V2</button>
+            <form method="post" action="/classify-using-MobileNetV2" enctype="multipart/form-data" id="mobile-form" style="opacity:1; display:block;"><div class="form-group">
+                <input type="file" value="allo" name="image" onchange="readURL1(this);"/><img id="MobileNetv2image" alt="No image" /></div><button type="submit" class="btn btn-primary">Classify using MobileNet V2</button>
             </form>
             <form method="post" action="/classify-using-ResNet50" enctype="multipart/form-data" id="resnet-form" style="opacity:0; display:none;">
-                <div class="form-group"><input type="file" value="allo" name="image" onchange="readURL2(this);"/><img id="ResNet50image" alt="No image" /></div>
-                <button type="submit" class="btn btn-primary">Classify using ResNet-50</button>
+                <div class="form-group"><input type="file" value="allo" name="image" onchange="readURL2(this);"/><img id="ResNet50image" alt="No image" /></div><button type="submit" class="btn btn-primary">Classify using ResNet-50</button>
             </form>
             {% elif model == 'resnet' %}
             <form method="post" action="/classify-using-MobileNetV2" enctype="multipart/form-data" id="mobile-form" style="opacity:0; display:none">
-                <div class="form-group"><input type="file" value="allo" name="image" onchange="readURL1(this);"/><img id="MobileNetv2image" alt="No image" /></div>
-                <button type="submit" class="btn btn-primary">Classify using MobileNet V2</button></form>
+                <div class="form-group"><input type="file" value="allo" name="image" onchange="readURL1(this);"/><img id="MobileNetv2image" alt="No image" /></div><button type="submit" class="btn btn-primary">Classify using MobileNet V2</button></form>
             <form method="post" action="/classify-using-ResNet50" enctype="multipart/form-data" id="resnet-form" style="opacity:1; display:block;">
                 <div class="form-group"><input type="file" value="allo" name="image" onchange="readURL2(this);"/><img id="ResNet50image" alt="No image" /></div><button type="submit" class="btn btn-primary">Classify using ResNet-50</button></form>
             {% endif %}</div>
         {% endif %}
         {% if nofile %}
         <div><div class="result-container mt-5">
-                <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">No selected file!</h4><hr class="line"></hr>
-                <form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form>
+                <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">No selected file!</h4><hr class="line"></hr><form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form>
         </div></div>
         {% endif %}
         {% if cant %}
@@ -67,8 +52,7 @@
         {% endif %}
         {% if nopart %}
         <div class="result-container mt-5">
-            <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">No image part in the form.</h4><hr class="line"></hr>
-            <form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form></div>
+            <h2 class="text-center">Error Occured</h2><h4 class="text-center" style="color:red;">No image part in the form.</h4><hr class="line"></hr><form method="post" action="/"><button type="submit" class="btn btn-secondary">Refresh</button></form></div>
         {% endif %}
         {% if valid %}
         <div class="decision-container mt-3"><h3>Your response has been recorded</h3></div>
@@ -101,6 +85,4 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script></body></html>
