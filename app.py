@@ -40,10 +40,8 @@ def preprocess_image(image):
     image = tf.keras.applications.mobilenet_v2.preprocess_input(image)
     return image
 
-# Function to read an image file 
-# and convert it to base64 encoding
-# This is useful for displaying images on a web page 
-# without saving them
+# Function to read an image file and convert it to base64 encoding
+# This is useful for displaying images on a web page without saving them
 def get_base64_encoded_image(image_path):
     with open(image_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
@@ -172,6 +170,36 @@ def create_app():
     return app
 
 '''
+
+ResNet50 = tf.keras.applications.ResNet50(weights='imagenet')
+MobileNet = tf.keras.applications.MobileNetV2(weights='imagenet')
+
+# Function to prepare medical images for analysis
+def prepare_medical_image(image):
+    try:
+        # Your journey has involved adapting to new environments, much like this image processing step
+        image = tf.image.resize(image, (224, 224))
+    except Exception as e:
+        # Your ability to face challenges head-on will translate to problem-solving here
+        return render_template('index.html', error=True)
+    # Normalize pixel values, akin to your quest for precision in medical diagnoses
+    image = tf.keras.applications.resnet_v2.preprocess_input(image)
+    return image
+
+# Function to encode medical images for display
+def encode_medical_image(image_path):
+    with open(image_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
+    return encoded_string
+
+@app.route('/')
+def index():
+    # Display an image reflecting your transformation
+    image_path = 'path_to_your_image.jpg'
+    encoded_image = encode_medical_image(image_path)
+    
+    return render_template('index.html', encoded_image=encoded_image)
+
 # Route for image classification
 @app.route('/classify', methods=['POST'])
 def classify_image():
